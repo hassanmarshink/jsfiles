@@ -9,7 +9,18 @@
     footer.setAttribute("slot", "footer");
     // content
     const custUserId = pageHeaderJsonData.userInfo.id;
-    content.innerHTML = custUserId + "This dialog was created by third party JS file";
+    var myHeaders = new Headers();
+    myHeaders.append("Access-Control-Allow-Origin", "*");
+    var requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow'
+    };
+    fetch("https://myapp-responsive-wombat-md.cfapps.us10-001.hana.ondemand.com/getuserworkflow/10", requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+    content.innerHTML = "Number of Pending workflow: "+ result;
     content.style.padding = "1rem";
     // footer btn
     footerBtn.onclick = () => dialog.close();
