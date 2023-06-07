@@ -8,7 +8,7 @@
     dialog.setAttribute("header-text", "Third Party JavaScript");
     footer.setAttribute("slot", "footer");
     // content
-    const custUserId = "pageHeaderJsonData.userInfo.id";
+    const custUserId = pageHeaderJsonData.userInfo.id;
     content.innerHTML = custUserId + "This dialog was created by third party JS file";
     content.style.padding = "1rem";
     // footer btn
