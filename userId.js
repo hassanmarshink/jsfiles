@@ -9,6 +9,7 @@
     footer.setAttribute("slot", "footer");
     // content
     const custUserId = pageHeaderJsonData.userInfo.id;
+    var wfNumber
     var myHeaders = new Headers();
     myHeaders.append("Access-Control-Allow-Origin", "*");
     var requestOptions = {
@@ -18,9 +19,9 @@
     };
     fetch("https://myapp-responsive-wombat-md.cfapps.us10-001.hana.ondemand.com/getuserworkflow/10", requestOptions)
     .then(response => response.text())
-    .then(result => console.log(result))
+    .then(result => wfNumber = result)
     .catch(error => console.log('error', error));
-    content.innerHTML = "Number of Pending workflow: "+ result;
+    content.innerHTML = "Number of Pending workflow: "+ wfNumber;
     content.style.padding = "1rem";
     // footer btn
     footerBtn.onclick = () => dialog.close();
