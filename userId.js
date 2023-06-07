@@ -9,7 +9,7 @@
     footer.setAttribute("slot", "footer");
     // content
     const custUserId = pageHeaderJsonData.userInfo.id;
-    var wfNumber
+    var wfNumber = 0
     var myHeaders = new Headers();
     myHeaders.append("Access-Control-Allow-Origin", "*");
     var requestOptions = {
